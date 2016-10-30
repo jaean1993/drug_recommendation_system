@@ -7,8 +7,8 @@
 
 
 class DrugPipeline(object):
-    def __init__(self):
-        self.file = open('drug.txt', mode='wb')
+    # def __init__(self):
+        # self.file = open('drug.txt', mode='wb')
     def process_item(self, items, spider):
 
         return items

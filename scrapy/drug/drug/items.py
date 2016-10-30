@@ -16,6 +16,15 @@ class DrugItem(scrapy.Item):
     link = scrapy.Field()
     drug_link = scrapy.Field()
     page_link = scrapy.Field()
+
     drug_name = scrapy.Field()
+    rx_otc = scrapy.Field()
+    pregnancy = scrapy.Field()
+    csa = scrapy.Field()
+    alcohol = scrapy.Field()
+    review_num = scrapy.Field()
+    rating = scrapy.Field()
+    popularity = scrapy.Field()
+
     pass
 
