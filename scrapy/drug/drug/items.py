@@ -28,3 +28,7 @@ class DrugItem(scrapy.Item):
 
     pass
 
+class DrugDetailsItem(scrapy.Item):
+    drug_name = scrapy.Field()
+    detailsOne = scrapy.Field()
+    detailsTwo = scrapy.Field()

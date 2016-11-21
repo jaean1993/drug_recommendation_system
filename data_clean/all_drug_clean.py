@@ -8,7 +8,7 @@ MYSQL_DB_NAME = "drug_system"
 def getLastHTMLWord(string):
     first_split = string.split("/")
     second_split = first_split[-1].split(".")
-    return second_split[0]
+    return second_split[0].lower()
 
 def getCleanJson():
     input_file = "/Users/anjin/work/git_anjin/drug_recommendation_system/scrapy/drug/all_drug.json"
@@ -25,14 +25,14 @@ def getCleanJson():
 
             temp['drug'] =getLastHTMLWord(tuple['drug_link'][0])
             if len(tuple['alcohol']) > 0:
-                temp['alcohol'] = tuple['alcohol'][0].strip()
+                temp['alcohol'] = tuple['alcohol'][0].strip().lower()
             else:
                 temp['alcohol'] = ""
-            temp["rx_otc"] = tuple['rx_otc'][0].strip()
+            temp["rx_otc"] = tuple['rx_otc'][0].strip().lower()
             temp["popularity"] = int(re.findall('\d+', tuple["popularity"][0])[0])
-            temp['csa'] = tuple['csa'][0].strip()
+            temp['csa'] = tuple['csa'][0].strip().lower()
             if len(tuple['pregnancy']) > 0:
-                temp['pregnancy'] = tuple['pregnancy'][0].strip()
+                temp['pregnancy'] = tuple['pregnancy'][0].strip().lower()
             else:
                 temp['pregnancy'] = ""
             review_num = tuple['review_num'][0].strip()
@@ -46,7 +46,7 @@ def getCleanJson():
     return list
 
 def insert_to_db(dict):
-    db = pymysql.connect("localhost", MYSQL_USER, MYSQL_PASS, "MYSQL_DB_NAME")
+    db = pymysql.connect("localhost", MYSQL_USER, MYSQL_PASS, MYSQL_DB_NAME)
     cursor = db.cursor()
 
 

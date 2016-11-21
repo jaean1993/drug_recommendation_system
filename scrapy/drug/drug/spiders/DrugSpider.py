@@ -11,7 +11,6 @@ class DrugSpider(scrapy.Spider):
         start_urls.append("https://www.drugs.com/condition/"+str(unichr(ord('a') + i))+".html")
 
     def parse(self, response):
-        items = []
         if response.status == 200:
                 for sel in response.xpath("//ul[@class='column-list-2']/li"):
                     item = DrugItem()
@@ -42,12 +41,3 @@ class DrugSpider(scrapy.Spider):
             #choose top 25 popularity medicine for every illness temporarily
             # int page_num = response.xpath("")
 
-class DrugDetailsSpider(scrapy.Spider):
-    name = "drug"
-    allowed_domains = ["drugs.com"]
-    input_file = "../ill_drug.json"
-    dict = json.loads(file(input_file))
-
-    for pair in dict:
-        if len(pair["drug_link"]) > 0:
-            pair["drug_link"]
