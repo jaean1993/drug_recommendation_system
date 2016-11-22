@@ -1,0 +1,38 @@
+<html>
+<body>
+<h2 align="center">Hello<br> Please fill in the following blank <br>And we will recommend some drugs for you.</h2>
+
+<form action="{% url 'drugweb:result' %}" method="post">
+    {% csrf_token %}
+    <div align="center">
+        <ul>
+            <div>
+                <input type="text" id="cur_drug" placeholder="current_drug" name="cur_drug" required>
+            </div>
+            <div>
+                <label>
+                    <br>
+                </label>
+                <input type="text" id="illness_name" placeholder="illness_name" name="illness_name" required>
+            </div>
+            <br>
+            <div>
+                <label>
+                    Pregnancy&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                </label>
+                <form>
+                <input type="radio" value="yes" name="pregnancy">yes&nbsp&nbsp&nbsp
+                <input type="radio" value="no" name="pregnancy">no
+                </form>
+            </div>
+            <br>
+            <div>
+                <input type="submit" value="submit">
+            </div>
+        </ul>
+
+    </div>
+</form>
+
+</body>
+</html>
