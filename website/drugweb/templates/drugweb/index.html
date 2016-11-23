@@ -1,44 +1,42 @@
 <html>
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+</head>
 <body>
-<h2 align="center">Hello<br> Please fill in the following blank <br>And we will recommend alternative drugs for you.</h2>
+    <div class="container">
+        <div class="jumbotron">
+        <h1>Drug Recommendation System</h1>
+        <p>Please fill in the following blank. And we will recommend alternative drugs for you.</p>
+      </div>
 
-<form action="{% url 'drugweb:result' %}" method="post">
-    {% csrf_token %}
-    <div align="center">
-        <ul>
-            <div>
-                <input type="text" id="cur_drug" placeholder="current_drug" name="cur_drug">
-            </div>
-            <div>
-                <label>
-                    <br>
-                </label>
-                <input type="text" id="illness_name" placeholder="illness_name" name="illness_name" required>
-            </div>
-            <br>
-            <div>
-                <label>
-                    Pregnancy&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-                </label>
-                <form>
-                <input type="radio" value="yes" name="pregnancy">yes&nbsp&nbsp&nbsp
-                <input type="radio" value="no" name="pregnancy">no
-                </form>
-            </div>
-            <br>
-            <div>
-                <input type="submit" value="submit">&nbsp&nbsp&nbsp<input type="reset" value="reset">
-            </div>
-            <div>
-                <label>
-                    <br>Clean history
-                </label>
-                <input type="checkbox" id="remove_history" name="remove_history" value="yes">
-            </div>
-        </ul>
+    <form class="form-signin" action="{% url 'drugweb:result' %}" method="post">
+        {% csrf_token %}
+                <div>
+                    <input type="text" id="cur_drug" class="form-control" placeholder="current_drug" name="cur_drug">
+                </div>
+                <div>
+                        <br>
+                    <input type="text" id="illness_name" class="form-control" placeholder="illness_name" name="illness_name" required>
+                </div>
+                <br>
+                <div>
+                    <label>
+                        Pregnancy&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                    </label>
+                    <label class="radio-inline"><input  type="radio" value="yes" name="pregnancy">yes</label>
+                    <label class="radio-inline"><input  type="radio" value="no" name="pregnancy">no</label>
+                </div>
+                <br>
+                <input class="btn btn-primary" type="submit" value="submit">&nbsp&nbsp&nbsp<input class="btn btn-danger" type="reset" value="reset">
+                <div class="checkbox">
+                    <label>
+                        <br>
+                    <input type="checkbox" id="remove_history" name="remove_history" value="yes">Clean history
+                        </label>
+                </div>
 
-    </div>
-</form>
-
+    </form>
+</div>
 </body>
 </html>

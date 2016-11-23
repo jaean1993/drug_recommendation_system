@@ -1,27 +1,29 @@
 <html>
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+</head>
 <body>
-<h2 align="left">Result</h2>
+<div class="container">
+<div class="jumbotron">
+    <h2>Result</h2>
 
 
     <div align="left">
-        <ul>
-            <div>
-                Drug Recommendation
-            </div>
-            <br>
-            <div>
+            <h3>
+                Drug Name
+            </h3>
+            <p class="lead">
                 {{ drug_result }}
-            </div>
-            <br>
-            <div>
+            </p>
+            <h3>
                 Drug details
-            </div>
-            <div>
-                <p>{{ drug_details.drug_details }}</p>
-            </div>
-        </ul>
+            </h3>
+                <p class="lead">{{ drug_details.drug_details }}</p>
+            <a class="btn btn-lg btn-success" href="https://www.drugs.com/" role="button">Know more about it!</a>
 
     </div>
-
+    </div>
+</div>
 </body>
 </html>
