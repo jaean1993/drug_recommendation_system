@@ -22,9 +22,11 @@ def result(request):
     history_set.add(post_cur_drug)
 
     drug_result = ""
-    query_list = sorted(query_list,key = attrgetter("popularity"), reverse= True)
+    # query_list = sorted(query_list,key = attrgetter("popularity"), reverse= True)
+
+
     for i in query_list:
-        if i.drug_name not in history_set and not("pregnancy" in request.POST and request.POST['pregnancy'] == "yes" and i.pregnancy == 'x'):
+        if i.drug_name not in history_set and not(request.POST['pregnancy'] == "yes" and i.pregnancy == 'x') and not (request.POST['alcohol'] == "yes" and i.ALCOHOL == 'x') and not (request.POST['rxotc'] == "otc" and i.RX_OTC == 'rx') and not (request.POST['csa'] == "no" and i.CSA == '4'):
             drug_result = i.drug_name
             break
     if len(drug_result) == 0:
