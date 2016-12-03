@@ -5,7 +5,10 @@ from operator import attrgetter
 # Create your views here.
 
 from .models import Cure, Drugdetails
+
 history_set = set()
+m = 0
+
 def index(request):
     template = loader.get_template('drugweb/index.html')
     context = {}
@@ -24,11 +27,24 @@ def result(request):
     drug_result = ""
     # query_list = sorted(query_list,key = attrgetter("popularity"), reverse= True)
 
-
+    # C = 7, a threshold
+    # n = popularity of current drug
+    # x = popularity * rating
+    # m =  popularity * rating / popularity of all
+    global m
+    print m
+    if(m == 0):
+        m = weightedAverage()
+    temp_list = []
     for i in query_list:
-        if i.drug_name not in history_set and not(request.POST['pregnancy'] == "yes" and i.pregnancy == 'x') and not (request.POST['alcohol'] == "yes" and i.ALCOHOL == 'x') and not (request.POST['rxotc'] == "otc" and i.RX_OTC == 'rx') and not (request.POST['csa'] == "no" and i.CSA == '4'):
-            drug_result = i.drug_name
-            break
+        if i.drug_name not in history_set and not(request.POST['pregnancy'] == "yes" and i.pregnancy == 'x') and not (request.POST['alcohol'] == "yes" and i.alcohol == 'x') and not (request.POST['rxotc'] == "otc" and i.rx_otc == 'rx') and not (request.POST['csa'] == "no" and i.csa == '4'):
+            score = (7*m + i.rating*i.popularity)/(i.popularity+7)
+            drug_name = i.drug_name
+            t = (score, drug_name)
+            temp_list.append(t)
+    sorted_list = sorted(temp_list, key= lambda d:d[0], reverse=True)
+
+    drug_result = sorted_list[0][1]
     if len(drug_result) == 0:
         return HttpResponse("Sorry. No suitable recommendation for you.")
 
@@ -40,3 +56,15 @@ def result(request):
         'drug_details': get_object_or_404(Drugdetails, drug_name = drug_result)
     }
     return HttpResponse(template.render(context,request))
+
+def weightedAverage():
+    sum = 0
+    pop = 0
+    all_list = list(Cure.objects.all())
+    for i in all_list:
+        sum += i.popularity * i.rating
+        pop += i.popularity
+    return sum/pop
+
+def score(s):
+    return s['score']
