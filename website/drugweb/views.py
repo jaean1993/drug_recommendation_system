@@ -44,10 +44,10 @@ def result(request):
             temp_list.append(t)
     sorted_list = sorted(temp_list, key= lambda d:d[0], reverse=True)
 
-    drug_result = sorted_list[0][1]
-    if len(drug_result) == 0:
-        return HttpResponse("Sorry. No suitable recommendation for you.")
 
+    if len(sorted_list) == 0 or len(sorted_list[0]) == 0:
+        return HttpResponse("Sorry. No suitable recommendation for you.")
+    drug_result = sorted_list[0][1]
     history_set.add(drug_result)
 
     template = loader.get_template('drugweb/result.html')
