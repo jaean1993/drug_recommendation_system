@@ -4,7 +4,9 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
 </head>
 <body>
-    <div class="container">
+{% extends "nav.html" %}
+{% block content %}
+    <!--<div class="container">-->
         <div class="jumbotron">
         <h1>Drug Recommendation System</h1>
         <p>Please fill in the following blank. And we will recommend alternative drugs for you.</p>
@@ -69,6 +71,8 @@
                 </div>
 
     </form>
-</div>
+<!--</div>-->
+{% endblock %}
 </body>
+
 </html>

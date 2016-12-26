@@ -32,7 +32,7 @@ def result(request):
     # x = popularity * rating
     # m =  popularity * rating / popularity of all
     global m
-    print m
+
     if(m == 0):
         m = weightedAverage()
     temp_list = []

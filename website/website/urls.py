@@ -15,9 +15,13 @@ Including another URLconf
 """
 from django.conf.urls import include, url
 from django.contrib import admin
+from django.contrib.auth.views import login
+from views import RegisterView
 
 urlpatterns = [
     url(r'^drugweb/', include('drugweb.urls')),
     url(r'^admin/', admin.site.urls),
-    url(r'^accounts/', include('users.urls')),
+    url(r'^accounts/', include('django.contrib.auth.urls')),
+    url(r'^accounts/login/$', login, name='login'),
+    url(r'^register/$', RegisterView.as_view(), name='register'),
 ]

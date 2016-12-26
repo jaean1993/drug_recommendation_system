@@ -4,7 +4,8 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
 </head>
 <body>
-<div class="container">
+{% extends "nav.html" %}
+{% block content %}
 <div class="jumbotron">
     <h2>Result</h2>
 
@@ -24,6 +25,6 @@
 
     </div>
     </div>
-</div>
+{% endblock %}
 </body>
 </html>
