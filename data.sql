@@ -174,7 +174,7 @@ CREATE TABLE `auth_user` (
   `date_joined` datetime(6) NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `username` (`username`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -183,7 +183,7 @@ CREATE TABLE `auth_user` (
 
 LOCK TABLES `auth_user` WRITE;
 /*!40000 ALTER TABLE `auth_user` DISABLE KEYS */;
-INSERT INTO `auth_user` VALUES (1,'pbkdf2_sha256$30000$JeJ9Jt9ZJpj7$0IQkzefO8HDwvKfCY3KOQord3iggiVWoe/xxahIEvRE=','2016-11-22 06:28:44.002266',1,'aj931128','','','282821521@qq.com',1,1,'2016-11-22 06:28:24.011011');
+INSERT INTO `auth_user` VALUES (1,'pbkdf2_sha256$30000$JeJ9Jt9ZJpj7$0IQkzefO8HDwvKfCY3KOQord3iggiVWoe/xxahIEvRE=','2016-12-26 20:56:24.048728',1,'aj931128','','','282821521@qq.com',1,1,'2016-11-22 06:28:24.011011'),(2,'pbkdf2_sha256$30000$XiuQcnKMJmCF$7yLHY6FJFJ/IqpenBAAlQiKZO/rTwgXkQzfHYMW6ZV0=','2016-12-26 15:58:57.847391',0,'sadf','','','aj931128@gmail.com',0,1,'2016-12-26 15:58:57.250146'),(3,'pbkdf2_sha256$30000$pz5A9DuQ0O2g$YHtwJyeIGm0LVlFsUpVf7N6/MA5z0Sip67Z4rFA2ntc=','2016-12-26 17:54:57.589341',0,'wa','','','aj93112@gmail.com',0,1,'2016-12-26 17:06:18.125480');
 /*!40000 ALTER TABLE `auth_user` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -350,8 +350,88 @@ CREATE TABLE `django_session` (
 
 LOCK TABLES `django_session` WRITE;
 /*!40000 ALTER TABLE `django_session` DISABLE KEYS */;
-INSERT INTO `django_session` VALUES ('bronjqw2bhvo8hipabug7k9l5gvlc6bc','OTU1NzMwODY0ZTdiZWJjNmYyNWNkY2ZmZWI3NDJmMjRlOTFhMGE1NDp7Il9hdXRoX3VzZXJfaGFzaCI6IjZmMWU2ZGU0MGU5OTgyZjE5OWVmYzNlNmExZjAxNjBkMTdiM2UxZGMiLCJfYXV0aF91c2VyX2JhY2tlbmQiOiJkamFuZ28uY29udHJpYi5hdXRoLmJhY2tlbmRzLk1vZGVsQmFja2VuZCIsIl9hdXRoX3VzZXJfaWQiOiIxIn0=','2016-12-06 06:28:44.012880');
+INSERT INTO `django_session` VALUES ('bronjqw2bhvo8hipabug7k9l5gvlc6bc','OTU1NzMwODY0ZTdiZWJjNmYyNWNkY2ZmZWI3NDJmMjRlOTFhMGE1NDp7Il9hdXRoX3VzZXJfaGFzaCI6IjZmMWU2ZGU0MGU5OTgyZjE5OWVmYzNlNmExZjAxNjBkMTdiM2UxZGMiLCJfYXV0aF91c2VyX2JhY2tlbmQiOiJkamFuZ28uY29udHJpYi5hdXRoLmJhY2tlbmRzLk1vZGVsQmFja2VuZCIsIl9hdXRoX3VzZXJfaWQiOiIxIn0=','2016-12-06 06:28:44.012880'),('jsbgkgg04o0me1otttrpbkfpdxux3w0e','NTk3YmRjYjZmOGU5Y2Q5NjBiMDlhODZlNzg1NDU2ZDcxYWRhNjY3Yjp7fQ==','2017-01-09 17:06:18.512067'),('mg63v4pmqu6ydokljwl4a3r9o76i189n','NTk3YmRjYjZmOGU5Y2Q5NjBiMDlhODZlNzg1NDU2ZDcxYWRhNjY3Yjp7fQ==','2017-01-09 15:58:57.842447'),('uqwsjom3kmbal541sawlmy6slq9eowh2','OTU1NzMwODY0ZTdiZWJjNmYyNWNkY2ZmZWI3NDJmMjRlOTFhMGE1NDp7Il9hdXRoX3VzZXJfaGFzaCI6IjZmMWU2ZGU0MGU5OTgyZjE5OWVmYzNlNmExZjAxNjBkMTdiM2UxZGMiLCJfYXV0aF91c2VyX2JhY2tlbmQiOiJkamFuZ28uY29udHJpYi5hdXRoLmJhY2tlbmRzLk1vZGVsQmFja2VuZCIsIl9hdXRoX3VzZXJfaWQiOiIxIn0=','2017-01-09 20:56:24.056710');
 /*!40000 ALTER TABLE `django_session` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `illness`
+--
+
+DROP TABLE IF EXISTS `illness`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `illness` (
+  `illness_id` int(11) NOT NULL,
+  `illness_name` varchar(255) DEFAULT NULL,
+  `illness_details` text,
+  PRIMARY KEY (`illness_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `illness`
+--
+
+LOCK TABLES `illness` WRITE;
+/*!40000 ALTER TABLE `illness` DISABLE KEYS */;
+/*!40000 ALTER TABLE `illness` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `user_cure_history`
+--
+
+DROP TABLE IF EXISTS `user_cure_history`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `user_cure_history` (
+  `cure_id` int(11) NOT NULL,
+  `user_id` int(11) DEFAULT NULL,
+  `drug_id` int(11) DEFAULT NULL,
+  PRIMARY KEY (`cure_id`),
+  KEY `drug_id` (`drug_id`),
+  KEY `user_id` (`user_id`),
+  CONSTRAINT `user_cure_history_ibfk_1` FOREIGN KEY (`drug_id`) REFERENCES `DRUGDETAILS` (`DRUG_ID`),
+  CONSTRAINT `user_cure_history_ibfk_2` FOREIGN KEY (`user_id`) REFERENCES `auth_user` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `user_cure_history`
+--
+
+LOCK TABLES `user_cure_history` WRITE;
+/*!40000 ALTER TABLE `user_cure_history` DISABLE KEYS */;
+/*!40000 ALTER TABLE `user_cure_history` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `user_ill_history`
+--
+
+DROP TABLE IF EXISTS `user_ill_history`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `user_ill_history` (
+  `history_id` int(11) NOT NULL,
+  `user_id` int(11) DEFAULT NULL,
+  `illness_id` int(11) DEFAULT NULL,
+  PRIMARY KEY (`history_id`),
+  KEY `user_id` (`user_id`),
+  KEY `illness_id` (`illness_id`),
+  CONSTRAINT `user_ill_history_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `auth_user` (`id`),
+  CONSTRAINT `user_ill_history_ibfk_2` FOREIGN KEY (`illness_id`) REFERENCES `illness` (`illness_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `user_ill_history`
+--
+
+LOCK TABLES `user_ill_history` WRITE;
+/*!40000 ALTER TABLE `user_ill_history` DISABLE KEYS */;
+/*!40000 ALTER TABLE `user_ill_history` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -363,4 +443,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2016-11-25 13:36:06
+-- Dump completed on 2016-12-31 10:51:40

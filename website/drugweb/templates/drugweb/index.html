@@ -66,7 +66,13 @@
                 <div class="checkbox">
                     <label>
                         <br>
+                        {% if user.is_authenticated %}
                     <input type="checkbox" id="remove_history" name="remove_history" value="yes">Clean history
+                        {% else %}
+                        <label>
+                        Log in to customize your recommendation history!
+                        </label>
+                        {% endif %}
                         </label>
                 </div>
 
